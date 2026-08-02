@@ -1,0 +1,70 @@
+# kube-prometheus-stack values for the hedronite-devops-lab k3s node.
+# Sized for a single-node lab. Install:
+#
+#   helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+#   helm repo update
+#   kubectl create namespace monitoring
+#   kubectl -n monitoring create secret generic grafana-admin \
+#     --from-literal=admin-user=admin \
+#     --from-literal=admin-password=<REPLACE_ME>
+#   helm install monitoring prometheus-community/kube-prometheus-stack \
+#     -n monitoring -f prom-stack-values.yaml
+#
+# For a real environment: raise retention and storage, add replicas,
+# set resource limits from measured usage, and move the admin secret
+# into your secrets manager.
+
+prometheus:
+  prometheusSpec:
+    # 15d fits a lab node; production wants remote-write or longer retention
+    retention: 15d
+    resources:
+      requests:
+        cpu: 250m
+        memory: 512Mi
+      limits:
+        memory: 2Gi
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          # local-path is the k3s default provisioner; swap for your CSI driver elsewhere
+          storageClassName: local-path
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 20Gi
+
+grafana:
+  # never commit the password; create the secret out-of-band (see header)
+  admin:
+    existingSecret: grafana-admin
+    userKey: admin-user
+    passwordKey: admin-password
+  persistence:
+    enabled: true
+    storageClassName: local-path
+    size: 5Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+alertmanager:
+  alertmanagerSpec:
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+
+# k3s embeds these control-plane components; their metrics ports are not
+# scrapable at the kubeadm defaults, so disable the probes to avoid
+# permanent false alerts. Re-enable on a kubeadm or managed cluster.
+kubeEtcd:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeProxy:
+  enabled: false

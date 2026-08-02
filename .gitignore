@@ -1,0 +1,36 @@
+# credentials and secrets
+**/*.pem
+**/id_*
+.env*
+**/.env*
+.aws/
+.config/gcloud/
+.azure/
+.kube/
+.ssh/
+**/*.key
+**/*.p12
+**/*.pfx
+**/secrets.*
+
+# terraform
+terraform.tfstate*
+**/terraform.tfstate*
+.terraform/
+**/.terraform/
+**/*.tfvars
+**/crash.log
+
+# build and runtime debris
+**/node_modules/
+**/.DS_Store
+**/*.log
+**/coverage/
+**/dist/
+**/target/
+**/vendor/
+
+# lab scratch
+lab-workspaces/
+labs-examples/tf/hello.txt
+labs-examples/tf/test/go.sum

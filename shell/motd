@@ -1,0 +1,11 @@
+
+  ⬢ hedronite-devops-lab
+
+  Ephemeral by design. Everything precious lives in a mount.
+
+    /workspace   read-write scratch, persists on the host
+    /labs        practice corpus, read-only
+    /tomes       book corpus, read-only
+
+  terraform · kubectl · helm · k9s · go · uv · rust · rails · R · prometheus · grafana
+
