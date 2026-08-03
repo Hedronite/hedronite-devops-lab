@@ -32,7 +32,7 @@ source /path/to/hedronite-devops-lab/shell/lab.zsh
 or source it straight from the tag:
 
 ```zsh
-source <(curl -fsSL https://raw.githubusercontent.com/Hedronite/hedronite-devops-lab/v0.1.0/shell/lab.zsh)
+source <(curl -fsSL https://raw.githubusercontent.com/Hedronite/hedronite-devops-lab/v0.1.1/shell/lab.zsh)
 ```
 
 Put whichever line you choose in `~/.zshrc`.
@@ -73,7 +73,7 @@ Every invocation starts a new container and removes it on exit. State that must 
 |---|---|---|---|
 | `/workspace` | `~/lab-workspaces/default` (override: `LAB_WORKSPACE`) | rw | scratch that survives the container |
 | `/labs` | `~/Obsidian/Atrium/Atrium/Archmagus-Stack/Sovereign-Bootcamp` | ro | practice corpus |
-| `/tomes` | `~/Obsidian/Atrium/Atrium/09-Tomes` | ro | reference books |
+| `/tomes` | `~/Obsidian/Atrium/Atrium/Archmagus-Stack/09-Tomes` | ro | reference books |
 | `/root/.aws` | `~/.aws` | ro | AWS credentials |
 | `/root/.config/gcloud` | `~/.config/gcloud` | ro | GCP credentials |
 | `/root/.azure` | `~/.azure` | ro | Azure credentials |

@@ -22,7 +22,7 @@ lab() {
   mounts=(
     -v "$LAB_WORKSPACE:/workspace"
     -v "$HOME/Obsidian/Atrium/Atrium/Archmagus-Stack/Sovereign-Bootcamp:/labs:ro"
-    -v "$HOME/Obsidian/Atrium/Atrium/09-Tomes:/tomes:ro"
+    -v "$HOME/Obsidian/Atrium/Atrium/Archmagus-Stack/09-Tomes:/tomes:ro"
   )
   [[ -d "$HOME/.aws" ]]           && mounts+=(-v "$HOME/.aws:/root/.aws:ro")
   [[ -d "$HOME/.config/gcloud" ]] && mounts+=(-v "$HOME/.config/gcloud:/root/.config/gcloud:ro")

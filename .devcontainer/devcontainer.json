@@ -13,6 +13,6 @@
     "source=${localEnv:HOME}/.kube,target=/root/.kube,type=bind,readonly",
     "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,readonly",
     "source=${localEnv:HOME}/Obsidian/Atrium/Atrium/Archmagus-Stack/Sovereign-Bootcamp,target=/labs,type=bind,readonly",
-    "source=${localEnv:HOME}/Obsidian/Atrium/Atrium/09-Tomes,target=/tomes,type=bind,readonly"
+    "source=${localEnv:HOME}/Obsidian/Atrium/Atrium/Archmagus-Stack/09-Tomes,target=/tomes,type=bind,readonly"
   ]
 }
